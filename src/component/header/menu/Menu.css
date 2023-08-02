@@ -1,0 +1,9 @@
+.menu-nav{
+    align-items: center;
+    width: 40px;
+}
+
+
+.link-menu-menu:hover {
+    color: rgb(255, 145, 0);
+}

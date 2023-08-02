@@ -1,0 +1,41 @@
+.nav-footer{    
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.link-footer{
+    color: white;
+}
+
+.link-footer:hover {
+    color: rgb(255, 145, 0);
+}
+
+.direccion-footer{
+    display: flex;  
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.direccion-name, .direccion-icon{
+    display: inline;
+}
+
+.direccion-icon{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+.direccion-icon:hover {
+    color: rgb(255, 145, 0);
+}
+
+
+.direccion-name{
+    margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+}

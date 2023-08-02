@@ -1,0 +1,18 @@
+.logo-logo-nombre {
+    display: flex;
+    align-items: center;
+}
+
+.logo-logo, .nombre-titulo {
+    display: inline;
+    margin-top: 20px;
+}
+
+.logo-logo {
+    width: 40px;
+}
+
+.nombre-titulo {
+    color: white;
+    margin-left: 5px;
+}
