@@ -7,15 +7,15 @@ const LayoutMain = ({ children }) => {
     return (
         <div className="app-layout">
             <header className="app-header" >
-            <Header />
+                <Header />
             </header>
             <main className="app-main">
-            {children}
+                {children}
             </main>
             <footer className="app-footer">
-            <Footer />
+                <Footer />
             </footer>
-            
+
         </div>
     );
 };

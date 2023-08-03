@@ -18,7 +18,7 @@ function Menu() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link className="link-menu-menu" href="#home">Home</Nav.Link>
-                        <Nav.Link className="link-menu-menu" href="#link">Citis</Nav.Link>
+                        <Nav.Link className="link-menu-menu" href="#link">Cities</Nav.Link>
                     </Nav>
                 </Navbar.Collapse >
                 <Image className='menu-nav' src="/img/usuario-anonimo.png" roundedCircle />

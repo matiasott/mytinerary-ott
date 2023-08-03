@@ -32,3 +32,13 @@
     font-size: 40px;
     color: rgb(255, 145, 0);
 }
+
+.booton-call{
+    margin: auto;
+}
+
+
+.booton-call:hover{
+    background-color:rgb(255, 145, 0); 
+    color: black;
+}

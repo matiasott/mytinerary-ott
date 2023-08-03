@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import "./Home.css";
 import LayoutMain from "../Layout/LayoutMain";
+import CarruselCity from "../../component/main/carrusel-city/CarruselCity";
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
     useEffect(() => {
@@ -34,6 +36,9 @@ const Home = () => {
             <p className="hero-parrafo">
                 "Find your perfect trip, designed by insiders who know and love their cities!"
             </p>
+            <Button className="booton-call" variant="dark">CLICK HERE</Button>
+            
+            <CarruselCity/>
         </LayoutMain>
     );
 };

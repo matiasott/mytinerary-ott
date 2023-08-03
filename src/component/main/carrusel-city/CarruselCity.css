@@ -1,0 +1,158 @@
+.carrusel-container-main {
+    background-image: url("/img/fondo_carrusel.jpg");
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 600px;
+    width: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+
+.titulo-container {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.carrusel-carrusel {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-carrusel {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: black;
+    padding: 3px;
+}
+
+.city-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.row1 {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.carrusel-citi,
+.carrusel-country {
+    display: flex;
+    align-items: center;
+}
+
+.carrusel-citi {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.carrusel-country {
+    margin-bottom: 5px;
+}
+
+.carrusel-container-wrapper {
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.carrusel-container {
+    height: 20vh;
+}
+
+.carousel-control-prev {
+    left: -60px;
+}
+
+.carousel-control-next {
+    right: -60px;
+}
+
+.carousel-indicators{
+    bottom: -20px;
+}
+
+
+@media (max-width: 576px) {
+    .carrusel-container-main {
+        height: 400px;
+        width: 100%;
+    }
+
+    .carrusel-carrusel {
+        width: 100%;
+        height: 70%;
+    }
+
+    .carrusel-container {
+        height: 12vh;
+    }
+
+    /* Estilos para el texto en dispositivos móviles */
+    .carrusel-citi {
+        margin-top: 2px;
+        margin-bottom: 0;
+        font-size: 10px; /* Ajusta el tamaño de fuente según desees */
+    }
+
+    .carrusel-country {
+        margin-bottom: 3px;
+        font-size: 8px; /* Ajusta el tamaño de fuente según desees */
+    }
+}
+
+/* Tablets */
+@media (min-width: 577px) and (max-width: 991px) {
+    .carrusel-container-main {
+        height: 500px;
+        width: 90%;
+    }
+    .carrusel-citi {
+        margin-top: 3px;
+        margin-bottom: 0;
+        font-size: 14px; /* Ajusta el tamaño de fuente según desees */
+    }
+
+    .carrusel-country {
+        margin-bottom: 3px;
+        font-size: 10px; /* Ajusta el tamaño de fuente según desees */
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 992px) {
+    .carrusel-container-main {
+        height: 600px;
+        width: 80vh;
+    }
+}

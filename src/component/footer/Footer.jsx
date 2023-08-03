@@ -10,10 +10,10 @@ function Footer() {
     return (
         <>
             <div className="footer.social">
-                <Container>                    
+                <Container className="div-footer-social" >                    
                     <Nav className="me-auto nav-footer">
                         <Nav.Link className="link-footer" href="#home">Home</Nav.Link>
-                        <Nav.Link className="link-footer" href="#link">Citis</Nav.Link>
+                        <Nav.Link className="link-footer" href="#link">Cities</Nav.Link>
                     </Nav>
                     <Social />
                     <div className="direccion-footer">
