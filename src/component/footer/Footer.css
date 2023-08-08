@@ -42,3 +42,9 @@
     align-items: center;
 }
 
+
+.active-link-footer {
+    background-color: black;
+    color: rgb(255, 145, 0);
+    font-weight: bold;
+}
