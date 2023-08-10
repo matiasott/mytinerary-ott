@@ -80,7 +80,7 @@ const CarruselCity = () => {
             return groupedArray;
         };
 
-      
+
         const groupedData = divideDataIntoGroups(data, 4);
         setIndexData(groupedData);
     }, []);

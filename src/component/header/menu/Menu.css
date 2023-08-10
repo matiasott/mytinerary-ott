@@ -15,3 +15,8 @@
     font-weight: bold;
     color: white;
 }
+
+
+.active-link:hover {
+    color:black
+}
