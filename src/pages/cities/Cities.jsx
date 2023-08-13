@@ -7,10 +7,10 @@ const Cities = () => {
 
     return (
         <LayoutMain>            
-            {/* <CardCity  />         */}
-            <div className="d-flex justify-content-center align-items-center">
+            <CardCity  />        
+            {/* <div className="d-flex justify-content-center align-items-center">
                 <Image src="https://puzsle.de/UnderConstruction.jpg" />
-            </div>
+            </div> */}
         </LayoutMain>
     );
 };

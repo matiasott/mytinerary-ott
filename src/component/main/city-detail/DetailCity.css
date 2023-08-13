@@ -1,0 +1,19 @@
+.location-icon{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+
+.location-icon:hover {
+    color: rgb(255, 145, 0);
+}
+
+.booton-atras{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.booton-atras:hover{
+    background-color:rgb(255, 145, 0); 
+    color: black;
+}
