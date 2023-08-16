@@ -232,7 +232,7 @@ const CardCity = () => {
             </div>
             <div className="card-container-wrapper">
                 {visibleCities.map((city, index) => (
-                    <Link to={`/cities/detailcity/${city.name}`} key={index} className="card-container">
+                    <Link to={`/cities/detailcity/${city._id}`} key={index} className="card-container">
                         <Card className="card-container">
                             <Card.Img src={city.image} alt="City Image" className="card-image" />
                             <div className="card-overlay">

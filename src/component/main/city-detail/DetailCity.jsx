@@ -10,11 +10,11 @@ import Image from 'react-bootstrap/Image';
 
 const DetailCity = () => {
 
-    const { name } = useParams();
+    const { id } = useParams();
     const [city, setCity] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/cities/detailcity/${name}`)
+        fetch(`http://localhost:3000/api/cities/${id}`)
             .then(res => res.json())
             .then(data => {
                 setCity(data.response);
@@ -23,10 +23,7 @@ const DetailCity = () => {
     }, []);
 
 
-
-    // const cityData = cities.find(city => city.id === parseInt(id));
-
-    let googleMapsUrl = null; // Inicializar la URL como null
+    let googleMapsUrl = null;
 
     if (city && city.coordinates) {
         googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${city.coordinates.latitude},${city.coordinates.longitude}`;
