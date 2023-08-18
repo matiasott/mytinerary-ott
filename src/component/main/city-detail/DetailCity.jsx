@@ -7,11 +7,9 @@ import { useParams } from 'react-router-dom';
 import LayoutMain from '../../../pages/Layout/LayoutMain';
 import Image from 'react-bootstrap/Image';
 
-
 const DetailCity = () => {
-
     const { id } = useParams();
-    const [city, setCity] = useState([])
+    const [city, setCity] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:3000/api/cities/${id}`)
@@ -22,7 +20,6 @@ const DetailCity = () => {
             .catch(err => console.log(err));
     }, []);
 
-
     let googleMapsUrl = null;
 
     if (city && city.coordinates) {
@@ -32,17 +29,16 @@ const DetailCity = () => {
     return (
         <>
             <LayoutMain>
-                <Link className="booton-atras" to="/cities">
-                    <Button className="booton-call" variant="dark"><FaArrowLeft /></Button>
+                <Link className="button-atras" to="/cities">
+                    <Button className="button-call booton-atras" variant="dark"><FaArrowLeft /></Button>
                 </Link>
 
                 <div className="container mt-5">
-                    <div className="row">
-                        <div className="col-md-6">
+                    <div className="row flex-md-row flex-column d-flex justify-content-center align-items-center">
+                        <div className="col-md-6 order-md-1 order-md-2">
                             <img src={city.image} className="img-fluid mb-3" alt={city.name} />
-
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 order-md-2 order-md-1">
                             <h2>{city.name}</h2>
                             <table className="table">
                                 <tbody>
@@ -79,7 +75,7 @@ const DetailCity = () => {
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                                </table>
                         </div>
                     </div>
                     <div className="row">
@@ -90,7 +86,7 @@ const DetailCity = () => {
                     </div>
                 </div>
                 <div className="d-flex justify-content-center align-items-center m-2">
-                    <Image src="https://puzsle.de/UnderConstruction.jpg" />
+                    <Image src="https://puzsle.de/UnderConstruction.jpg" fluid />
                 </div>
             </LayoutMain>
         </>
