@@ -1,6 +1,6 @@
 import LayoutMain from '../../pages/Layout/LayoutMain';
 import Image from 'react-bootstrap/Image';
-import "./component404";
+import "./component404.css";
 
 const Componente404 = () => {
 

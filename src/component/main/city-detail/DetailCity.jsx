@@ -5,20 +5,39 @@ import { FaMapMarkerAlt, FaArrowLeft } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button';
 import { useParams } from 'react-router-dom';
 import LayoutMain from '../../../pages/Layout/LayoutMain';
-import Image from 'react-bootstrap/Image';
+import Itineraries from '../itinerary/Itineraries';
+// import { getOneCity } from "../../../services/citiesService.js";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const DetailCity = () => {
     const { id } = useParams();
-    const [city, setCity] = useState([]);
+    // const [city, setCity] = useState([]);
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/api/cities/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setCity(data.response);
-            })
-            .catch(err => console.log(err));
-    }, []);
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/api/cities/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setCity(data.response);
+    //         })
+    //         .catch(err => console.log(err));
+    // }, []);
+
+    // useEffect(() => {
+    //     getOneCity(id)
+    //         .then(cityData => {
+    //             if (cityData) {
+    //                 setCity(cityData);
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         });
+    // }, [id]);
+    
+    const dispatch = useDispatch()
+    
+    const city = useSelector(store => store.cities.city)
 
     let googleMapsUrl = null;
 
@@ -75,7 +94,7 @@ const DetailCity = () => {
                                         </td>
                                     </tr>
                                 </tbody>
-                                </table>
+                            </table>
                         </div>
                     </div>
                     <div className="row">
@@ -83,10 +102,10 @@ const DetailCity = () => {
                             <h3>Description:</h3>
                             <p>{city.description}</p>
                         </div>
+
+                        <Itineraries cityName={city.name} />
+
                     </div>
-                </div>
-                <div className="d-flex justify-content-center align-items-center m-2">
-                    <Image src="https://puzsle.de/UnderConstruction.jpg" fluid />
                 </div>
             </LayoutMain>
         </>

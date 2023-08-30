@@ -1,29 +1,36 @@
 import React, { useEffect, useState } from 'react';
-import './CardCity.css';
 import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { cargarCities, cargarCitySync } from "../../../redux/actions/citiesActions.js"
+import './CardCity.css';
 
 const ITEMS_PER_PAGE = 4;
 
 const CardCity = () => {
-    const [cities, setCities] = useState([]);
     const [filter, setFilter] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
 
+    const dispatch = useDispatch()
+
+    const { loading, cities } = useSelector(store => store.cities)
+
+
     useEffect(() => {
-        fetch('http://localhost:3000/api/cities')
-            .then(res => res.json())
-            .then(data => {
-                setCities(data.response);
-            })
-            .catch(err => console.log(err));
+        if (cities.length === 0) {
+            dispatch(cargarCities())
+        }
     }, []);
+
+    if (loading) {
+        return <h1 className='text-center mt-5 text-primary'>Loading...</h1>;
+    }
 
     const handleFilterChange = (e) => {
         setFilter(e.target.value);
-        setCurrentPage(1); // Reset page when changing the filter
+        setCurrentPage(1);
     };
 
     const filteredCities = cities.filter(city =>
@@ -51,7 +58,7 @@ const CardCity = () => {
             </div>
             <div className="card-container-wrapper">
                 {visibleCities.map((city, index) => (
-                    <Link to={`/cities/detailcity/${city._id}`} key={index} className="card-container">
+                    <Link to={`/cities/detailcity/${city._id}`} key={index} className="card-container" onClick={() => dispatch(cargarCitySync(city))}>
                         <Card className="card-container">
                             <Card.Img src={city.image} alt="City Image" className="card-image" />
                             <div className="card-overlay">
