@@ -8,36 +8,21 @@ import LayoutMain from '../../../pages/Layout/LayoutMain';
 import Itineraries from '../itinerary/Itineraries';
 // import { getOneCity } from "../../../services/citiesService.js";
 import { useDispatch, useSelector } from "react-redux";
+import { cargarCity } from '../../../redux/actions/citiesActions.js'
 
 
 const DetailCity = () => {
     const { id } = useParams();
-    // const [city, setCity] = useState([]);
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:3000/api/cities/${id}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setCity(data.response);
-    //         })
-    //         .catch(err => console.log(err));
-    // }, []);
-
-    // useEffect(() => {
-    //     getOneCity(id)
-    //         .then(cityData => {
-    //             if (cityData) {
-    //                 setCity(cityData);
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //         });
-    // }, [id]);
-    
     const dispatch = useDispatch()
-    
     const city = useSelector(store => store.cities.city)
+    console.log(city)
+
+    useEffect(() => {
+        if (Object.keys(city).length === 0) {
+            dispatch(cargarCity({ id }));
+            // este if es para que pueda recargar la pagina y que haga la peticion cuando no viene de la pagina cities
+        }
+    }, []);
 
     let googleMapsUrl = null;
 
@@ -102,9 +87,7 @@ const DetailCity = () => {
                             <h3>Description:</h3>
                             <p>{city.description}</p>
                         </div>
-
                         <Itineraries cityName={city.name} />
-
                     </div>
                 </div>
             </LayoutMain>

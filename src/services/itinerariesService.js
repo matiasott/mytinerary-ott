@@ -23,3 +23,13 @@ export const getOneItinerary = async (id) => {
         return null;
     }
 }
+
+export const updateItineraryLikes = async (id) => {
+    try {
+        const response = await itineriesQueries.put(`/${id}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}

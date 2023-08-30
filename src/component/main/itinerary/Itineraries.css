@@ -20,8 +20,7 @@
 }
 
 .person-name {
-    display: flex;
-    flex-direction: column;
+    white-space: nowrap;
     font-weight: bold; 
 }
 
@@ -41,10 +40,8 @@
 .item-details {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
-    justify-content: right;
     margin-top: 10px;
-    
+    width:auto
 }
 
 
@@ -67,3 +64,17 @@
     background-color: rgb(255, 145, 0,0.3);
 }
 
+.item-details-tag{
+    width:auto
+}
+
+.tag{
+    font-size: small;
+    max-width: 70%;
+}
+
+@media (min-width: 992px) {
+    .person-info {
+        width: 100vh;
+    }
+}
