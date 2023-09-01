@@ -44,7 +44,4 @@ export const itenerariesReducers = createReducer(initialState, (builder) =>
             return newState;
         })
 
-        // .addDefaultCase(() => {
-        //     return initialState
-        // })
 );

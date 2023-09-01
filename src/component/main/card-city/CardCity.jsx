@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useRef} from 'react';
 import Pagination from 'react-bootstrap/Pagination';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import { cargarCities, cargarCitySync } from "../../../redux/actions/citiesActions.js"
+import { cargarCities, cargarCitySync,filtrarCities } from "../../../redux/actions/citiesActions.js"
 import './CardCity.css';
 
 const ITEMS_PER_PAGE = 4;
@@ -13,29 +13,37 @@ const CardCity = () => {
     const [filter, setFilter] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
 
+
+    const inputBusqueda = useRef(null);
+
+
     const dispatch = useDispatch()
 
-    const { loading, cities } = useSelector(store => store.cities)
-
+    const { loading, filteredCities, cities , valueFilter} = useSelector(store => store.cities)
 
     useEffect(() => {
         if (cities.length === 0) {
             dispatch(cargarCities())
         }
+        
     }, []);
 
     if (loading) {
         return <h1 className='text-center mt-5 text-primary'>Loading...</h1>;
     }
 
-    const handleFilterChange = (e) => {
-        setFilter(e.target.value);
-        setCurrentPage(1);
-    };
+    // const handleFilterChange = (e) => {
+    //     setFilter(e.target.value);
+    //     setCurrentPage(1);
+    // };
 
-    const filteredCities = cities.filter(city =>
-        city.name.toLowerCase().startsWith(filter.toLowerCase())
-    );
+    // const filteredCities = cities.filter(city =>
+    //     city.name.toLowerCase().startsWith(filter.toLowerCase())
+    // );
+
+    const handleFilterChange = () => {
+        dispatch(filtrarCities(inputBusqueda.current.value));
+    }
 
     const totalPages = Math.ceil(filteredCities.length / ITEMS_PER_PAGE);
 
@@ -52,8 +60,9 @@ const CardCity = () => {
                 <Form.Control
                     type="text"
                     placeholder="Search by city name"
-                    value={filter}
                     onChange={handleFilterChange}
+                    ref={inputBusqueda}
+                    defaultValue = {valueFilter}
                 />
             </div>
             <div className="card-container-wrapper">

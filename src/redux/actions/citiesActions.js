@@ -28,10 +28,9 @@ export const cargarCity = createAsyncThunk('cargarCity', async ({ id }) => {
 });
 
 
-export const filtrarCities = createAction( 'filtrar_cities', (name, search) => {
+export const filtrarCities = createAction( 'filtrar_cities', (search) => {
     return {
         payload : {
-            selectedCity : name,
             inputValue : search
         }
     }

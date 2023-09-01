@@ -4,7 +4,9 @@ import {cargarCitySync, cargarCities, filtrarCities, cargarCity } from '../actio
 const initialState = {
     cities: [],
     loading: false,
-    city:{}
+    city:{},
+    filteredCities:[],
+    valueFilter: ""
 }
 
 export const citiesReducer = createReducer(initialState, (builder) =>
@@ -17,7 +19,7 @@ export const citiesReducer = createReducer(initialState, (builder) =>
         .addCase(cargarCities.fulfilled, (state, action) => {
             console.log('fulfilled')
             console.log(action)
-            const newState = { ...state, cities: action.payload, loading: false }
+            const newState = { ...state, cities: action.payload, loading: false , filteredCities : action.payload}
             return newState
         })
 
@@ -50,27 +52,22 @@ export const citiesReducer = createReducer(initialState, (builder) =>
             return newState
         })
 
-        .addCase(filtrarCities, (stateActual, action) => {
-            const filteredSearch = stateActual.allCities.filter(city =>
+        .addCase(filtrarCities, (state, action) => {
+            const filteredSearch = state.cities.filter(city =>
                 city.name.toLowerCase().startsWith(action.payload.inputValue.toLowerCase())
             );
         
             let newFilteredCities = filteredSearch;
-        
-            if (action.payload.selectedCity !== "All") {
-                newFilteredCities = newFilteredCities.filter(city =>
-                    city.name === action.payload.selectedCity
-                );
-            }
+            let value = action.payload.inputValue
+
         
             return {
-                ...stateActual,
-                filteredCities: newFilteredCities
+                ...state,
+                filteredCities: newFilteredCities,
+                valueFilter: value
             };
         })
-        // .addDefaultCase(() => {
-        //     return initialState
-        // })
+       
 );
 
 
