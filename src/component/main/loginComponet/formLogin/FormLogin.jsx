@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import { signIn } from '../../../../services/userService.js';
 import { GoogleLogin } from '@react-oauth/google';
 import { cargarUsuario } from '../../../../redux/actions/userActions.js';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import "./FormLogin.css";
@@ -13,6 +13,8 @@ const FormLogin = () => {
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
   const [error, setError] = useState(null);
+
+  const usuariosRegistrados = useSelector((state) => state.usuarios);
 
   const navigate = useNavigate();
 
