@@ -24,9 +24,7 @@
     font-weight: bold; 
 }
 
-.card {
-    margin-top: 15px;
-}
+
 
 .accordion-toggle-button {
     color: black;
@@ -41,7 +39,15 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
-    width:auto
+    width:auto;
+    
+}
+.item-meta{
+    white-space: nowrap;
+    display: block;
+    align-content: center;
+    
+    justify-content: center;
 }
 
 
@@ -65,7 +71,10 @@
 }
 
 .item-details-tag{
-    width:auto
+    width:auto;
+    margin-left: 20px;
+    display: block;
+    align-content: center;
 }
 
 .tag{
